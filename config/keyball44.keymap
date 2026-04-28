@@ -48,55 +48,133 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // === Vial tap-dance 再現 (4番目 = tap-hold) ===
-        // 2回目押下=tap-hold相当。押し続けるとそのキー/修飾が hold される。
-        td0: td0 { // tap=SPACE / hold=MO(NAV) / tap+hold=LSHFT
+        // === Vial tap-dance 再現 (逆ネスト方式 + quick-tap-ms) ===
+        // 外側 hold-tap（hold判定をpress時点で確立 → ホールド+他キー即動作）
+        // 内側 tap-dance（tap時に多重押下で2nd-action発動）
+        // quick-tap-ms により「タップ→ホールド」も内側で正しく検出
+
+        // --- 内側 tap-dance: tap時の単押し/連打分岐 ---
+        td0_inner: td0_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&lt NAV SPACE>, <&kp LSHFT>;
+            bindings = <&kp SPACE>, <&kp LSHFT>;
         };
-        td1: td1 { // tap=SPACE / hold=LALT / tap+hold=LSHFT
+        td1_inner: td1_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&mt LALT SPACE>, <&kp LSHFT>;
+            bindings = <&kp SPACE>, <&kp LSHFT>;
         };
-        td2: td2 { // tap=LANG2 / hold=MO(FUN) / tap+hold=LCTRL
+        td2_inner: td2_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&lt FUN LANG2>, <&kp LCTRL>;
+            bindings = <&kp LANG2>, <&kp LCTRL>;
         };
-        td3: td3 { // tap=LANG1 / hold=MO(NUM) / tap+hold=LCTRL
+        td3_inner: td3_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&lt NUM LANG1>, <&kp LCTRL>;
+            bindings = <&kp LANG1>, <&kp LCTRL>;
         };
-        td4: td4 { // tap=NO(=RALT近似) / hold=RALT / tap+hold=OSM(RSFT+RALT)
+        td4_inner: td4_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp RALT>, <&sk RA(RSHFT)>;
+            bindings = <&none>, <&sk RA(RSHFT)>;
         };
-        td5: td5 { // tap=DEL / hold=LSHFT / tap+hold=OSM(LCTL+LSFT)
+        td5_inner: td5_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <180>;
-            bindings = <&mt LSHFT DEL>, <&sk LC(LSHFT)>;
+            bindings = <&kp DEL>, <&sk LC(LSHFT)>;
         };
-        td6: td6 { // tap=NO(=LCTRL近似) / hold=LCTRL / tap+hold=LSHFT
+        td6_inner: td6_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp LCTRL>, <&kp LSHFT>;
+            bindings = <&none>, <&kp LSHFT>;
         };
-        td7: td7 { // tap=NO(=LALT近似) / hold=LALT / tap+hold=LSHFT
+        td7_inner: td7_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp LALT>, <&kp LSHFT>;
+            bindings = <&none>, <&kp LSHFT>;
+        };
+
+        // --- 外側 hold-tap: hold-preferred+quick-tap-ms で全機能を両立 ---
+        td0: td0 { // hold=MO(layer), tap=td0_inner / 呼出: &td0 NAV 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&mo>, <&td0_inner>;
+        };
+        td1: td1 { // hold=&kp(mod), tap=td1_inner / 呼出: &td1 LALT 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&td1_inner>;
+        };
+        td2: td2 { // 呼出: &td2 FUN 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&mo>, <&td2_inner>;
+        };
+        td3: td3 { // 呼出: &td3 NUM 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&mo>, <&td3_inner>;
+        };
+        td4: td4 { // 呼出: &td4 RALT 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&td4_inner>;
+        };
+        td5: td5 { // 呼出: &td5 LSHFT 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <180>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&td5_inner>;
+        };
+        td6: td6 { // 呼出: &td6 LCTRL 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&td6_inner>;
+        };
+        td7: td7 { // 呼出: &td7 LALT 0
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
+            require-prior-idle-ms = <120>;
+            bindings = <&kp>, <&td7_inner>;
         };
     };
 
@@ -110,7 +188,7 @@
 &kp ESC    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &kp LBKT
 &kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &kp SEMI      &kp SQT
 &kp LSHFT  &kp Z     &kp X   &kp C        &kp V          &kp B                          &kp N         &kp M           &kp COMMA  &kp DOT  &kp FSLH      &kp RSHFT
-&kp TAB    &kp LGUI  &mo 4   &td0         &td2                           &td3           &td1                                                            &mo 4
+&kp TAB    &kp LGUI  &mo 4   &td0 NAV 0   &td2 FUN 0                     &td3 NUM 0     &td1 LALT 0                                                     &mo 5
             >;
         };
 
@@ -121,7 +199,7 @@
 &kp ESC    &kp Q          &kp W        &kp E      &kp R      &kp T                          &kp Y          &kp ENTER  &kp ESC    &kp TAB    &kp PG_DN     &kp PG_UP
 &kp LCTRL  &kp C_VOL_DN   &kp C_VOL_UP &kp D      &kp F      &kp G                          &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &kp HOME      &kp END
 &kp LSHFT  &kp LC(Z)      &kp LC(X)    &kp LC(C)  &kp LC(V)  &kp ENTER                      &kp BSPC       &kp GRAVE  &kp MINUS  &kp EQUAL  &kp BSLH      &kp RSHFT
-&kp LCTRL  &kp LGUI       &kp LALT     &trans     &trans                       &td5           &td4                                                        &none
+&kp LCTRL  &kp LGUI       &kp LALT     &trans     &trans                       &td5 LSHFT 0   &td4 RALT 0                                                 &none
             >;
         };
 
@@ -132,7 +210,7 @@
 &kp F12    &kp F1     &kp F2          &kp F3          &kp F4      &kp F5                            &kp F6        &kp F7    &kp F8     &kp F9   &kp F10    &kp F11
 &kp LCTRL  &kp A      &msc SCRL_DOWN  &msc SCRL_UP    &mkp LCLK   &mkp RCLK                         &kp H         &kp J     &kp K      &kp L    &kp LBKT   &kp RBKT
 &kp LSHFT  &kp LC(Z)  &kp LC(X)       &kp LC(C)       &kp LC(V)   &kp LC(B)                         &kp N         &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
-&kp LCTRL  &kp LGUI   &kp LALT        &trans          &trans                       &td5             &td4                                                   &trans
+&kp LCTRL  &kp LGUI   &kp LALT        &trans          &trans                       &td5 LSHFT 0     &td4 RALT 0                                            &trans
             >;
         };
 
@@ -143,7 +221,7 @@
 &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                          &kp N6    &kp N7    &kp N8     &kp N9   &kp N0     &kp LBKT
 &kp LCTRL  &kp A     &kp S     &kp D     &kp F     &kp G                           &kp H     &kp J     &kp K      &kp L    &kp LBKT   &kp RBKT
 &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B                           &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
-&kp LCTRL  &kp LGUI  &kp LALT  &td7      &td6                            &trans    &trans                                              &trans
+&kp LCTRL  &kp LGUI  &kp LALT  &td7 LALT 0  &td6 LCTRL 0                 &trans    &trans                                              &trans
             >;
         };
 
@@ -152,7 +230,7 @@
             label = "BALL";
             bindings = <
 &mo 5    &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
-&none    &none  &none  &none  &mkp LCLK  &mkp RCLK          &none  &none  &none  &none  &none  &none
+&none    &none  &none  &none  &mkp LCLK  &mkp RCLK          &none  &mkp LCLK  &mkp RCLK  &none  &none  &none
 &none    &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none    &none  &none  &none  &none                 &none   &none                                &none
             >;
@@ -162,8 +240,8 @@
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans          &trans            &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT   &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG            &trans          &trans          &trans          &trans            &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT   &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans          &trans            &trans  &trans
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans                                                                    &trans
             >;
