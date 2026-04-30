@@ -58,49 +58,49 @@
         td0_inner: td0_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&kp SPACE>, <&kp LSHFT>;
         };
         td1_inner: td1_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&kp SPACE>, <&kp LSHFT>;
         };
         td2_inner: td2_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&kp LANG2>, <&kp LCTRL>;
         };
         td3_inner: td3_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&kp LANG1>, <&kp LCTRL>;
         };
         td4_inner: td4_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&none>, <&sk RA(RSHFT)>;
         };
         td5_inner: td5_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&kp DEL>, <&sk LC(LSHFT)>;
         };
         td6_inner: td6_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&none>, <&kp LSHFT>;
         };
         td7_inner: td7_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             bindings = <&none>, <&kp LSHFT>;
         };
 
@@ -109,8 +109,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td0_inner>;
         };
@@ -118,8 +118,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td1_inner>;
         };
@@ -127,8 +127,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td2_inner>;
         };
@@ -136,8 +136,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td3_inner>;
         };
@@ -145,8 +145,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td4_inner>;
         };
@@ -154,8 +154,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td5_inner>;
         };
@@ -163,8 +163,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td6_inner>;
         };
@@ -172,8 +172,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <220>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td7_inner>;
         };
