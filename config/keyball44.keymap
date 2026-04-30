@@ -19,14 +19,14 @@
     tapping-term-ms = <180>;
     flavor = "hold-preferred";
     quick-tap-ms = <150>;
-    require-prior-idle-ms = <120>;
+    require-prior-idle-ms = <80>;
 };
 
 &mt {
     tapping-term-ms = <180>;
     flavor = "hold-preferred";
     quick-tap-ms = <150>;
-    require-prior-idle-ms = <120>;
+    require-prior-idle-ms = <80>;
 };
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
@@ -82,7 +82,7 @@
         td4_inner: td4_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <180>;
             bindings = <&none>, <&sk RA(RSHFT)>;
         };
         td5_inner: td5_inner {
@@ -94,13 +94,13 @@
         td6_inner: td6_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <180>;
             bindings = <&none>, <&kp LSHFT>;
         };
         td7_inner: td7_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <180>;
             bindings = <&none>, <&kp LSHFT>;
         };
 
@@ -111,7 +111,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td0_inner>;
         };
         td1: td1 { // hold=&kp(mod), tap=td1_inner / 呼出: &td1 LALT 0
@@ -120,7 +120,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td1_inner>;
         };
         td2: td2 { // 呼出: &td2 FUN 0
@@ -129,7 +129,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td2_inner>;
         };
         td3: td3 { // 呼出: &td3 NUM 0
@@ -138,16 +138,16 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&mo>, <&td3_inner>;
         };
         td4: td4 { // 呼出: &td4 RALT 0
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <250>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td4_inner>;
         };
         td5: td5 { // 呼出: &td5 LSHFT 0
@@ -156,7 +156,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <180>;
             quick-tap-ms = <180>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td5_inner>;
         };
         td6: td6 { // 呼出: &td6 LCTRL 0
@@ -165,16 +165,16 @@
             flavor = "hold-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td6_inner>;
         };
         td7: td7 { // 呼出: &td7 LALT 0
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <250>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <250>;
-            require-prior-idle-ms = <120>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&td7_inner>;
         };
     };
