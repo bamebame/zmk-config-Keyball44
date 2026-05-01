@@ -39,7 +39,7 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:keyboard-tab$$
   - LGUI
-  - $$mdi:apple-keyboard-shift$$
+  - SCROLL
   - {t: '&td0_inner', h: NAV}
   - {t: '&td2_inner', h: FUN}
   - {t: '&td3_inner', h: NUM}
@@ -264,9 +264,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - {type: held alternate}
