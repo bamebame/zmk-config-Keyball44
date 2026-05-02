@@ -24,7 +24,7 @@ layers:
   - K
   - L
   - '&td_semi'
-  - {t: '''', s: '"'}
+  - '&td_sqt'
   - $$mdi:apple-keyboard-shift$$
   - Z
   - X
