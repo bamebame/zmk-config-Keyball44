@@ -49,6 +49,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        // === SEMI key tap-dance: tap/hold=SEMI, tap-and-hold=MO(SCROLL) ===
+        td_semi: td_semi {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&kp SEMI>, <&mo SCROLL>;
+        };
+
         // === Vial tap-dance 再現 (逆ネスト方式 + quick-tap-ms) ===
         // 外側 hold-tap（hold判定をpress時点で確立 → ホールド+他キー即動作）
         // 内側 tap-dance（tap時に多重押下で2nd-action発動）
@@ -187,9 +195,9 @@
             label = "QWRT";
             bindings = <
 &kp ESC    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &kp LBKT
-&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &kp SEMI      &kp SQT
+&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &td_semi      &kp SQT
 &kp LSHFT  &kp Z     &kp X   &kp C        &kp V          &kp B                          &kp N         &kp M           &kp COMMA  &kp DOT  &kp FSLH      &kp RSHFT
-&kp TAB    &kp LGUI  &mo 5   &td0 NAV 0   &td2 FUN 0                     &td3 NUM 0     &td1 LALT 0                                                     &mo 5
+&kp TAB    &kp LGUI  &mo SCROLL  &td0 NAV 0   &td2 FUN 0                     &td3 NUM 0     &td1 LALT 0                                                     &mo 5
             >;
         };
 
@@ -209,7 +217,7 @@
             label = "FUN";
             bindings = <
 &kp F12    &kp F1     &kp F2          &kp F3          &kp F4      &kp F5                            &kp F6        &kp F7    &kp F8     &kp F9   &kp F10    &kp F11
-&kp LCTRL  &msc SCRL_DOWN  &msc SCRL_UP  &mo 5        &mkp LCLK   &mkp RCLK                         &kp H         &kp J     &kp K      &kp L    &kp LBKT   &kp RBKT
+&kp LCTRL  &msc SCRL_DOWN  &msc SCRL_UP  &mo SCROLL        &mkp LCLK   &mkp RCLK                         &kp H         &kp J     &kp K      &kp L    &kp LBKT   &kp RBKT
 &kp LSHFT  &kp LC(Z)  &kp LC(X)       &kp LC(C)       &kp LC(V)   &kp LC(B)                         &kp N         &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
 &kp LCTRL  &kp LGUI   &trans        &trans          &trans                       &td5 LSHFT 0     &td4 RALT 0                                            &trans
             >;
@@ -230,10 +238,10 @@
         ball_layer {
             label = "BALL";
             bindings = <
-&mo 5    &none  &none  &none  &none  &none                  &none  &mkp MCLK  &mkp MB4  &mkp MB5  &none  &none
-&none    &none  &none  &mo 5  &mkp LCLK  &mkp RCLK          &kp LEFT  &mkp LCLK  &mkp RCLK &kp RIGHT  &mo 5  &none
-&none    &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
-&none    &none  &mo 5  &none  &none                 &none   &none                                &none
+&none &none  &none  &none  &none  &none                  &none  &mkp MCLK  &mkp MB4  &mkp MB5  &none  &none
+&kp LCTRL  &none  &none  &mo SCROLL  &mkp LCLK  &mkp RCLK          &kp LEFT  &mkp LCLK  &mkp RCLK &kp RIGHT  &mo SCROLL  &none
+&kp LSHFT  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none    &none  &mo SCROLL  &none  &none                 &none   &none                                &none
             >;
         };
 
