@@ -65,6 +65,21 @@
             bindings = <&kp SQT>, <&mo SCROLL>;
         };
 
+        // === Shift+SEMI/SQT で modifier 消失する問題を回避 ===
+        // Shift押下中: 直接 &kp で即時送信 / それ以外: td_* (tap-and-hold = MO layer)
+        mm_semi: mm_semi {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td_semi>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        mm_sqt: mm_sqt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&td_sqt>, <&kp SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         // === Thumb key: hold=MO(BALL), tap-and-hold=MO(SCROLL) ===
         td_ball_inner: td_ball_inner {
             compatible = "zmk,behavior-tap-dance";
@@ -220,7 +235,7 @@
             label = "QWRT";
             bindings = <
 &kp ESC    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &kp LBKT
-&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &td_semi      &td_sqt
+&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &mm_semi      &mm_sqt
 &kp LSHFT  &kp Z     &kp X   &kp C        &kp V          &kp B                          &kp N         &kp M           &kp COMMA  &kp DOT  &kp FSLH      &kp RSHFT
 &kp TAB    &kp LGUI  &td_ball BALL 0  &td0 NAV 0   &td2 FUN 0                     &td3 NUM 0     &td1 LALT 0                                                     &mo 5
             >;
@@ -265,7 +280,7 @@
             bindings = <
 &none &none  &none  &none  &none  &none                  &none  &mkp MCLK  &mkp MB4  &mkp MB5  &none  &none
 &kp LCTRL  &none  &none  &mkp MCLK  &mkp LCLK  &mkp RCLK          &kp LEFT  &mkp LCLK  &mkp RCLK &kp RIGHT  &mo BALL  &mo SCROLL
-&kp LSHFT  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&kp LSHFT  &none  &none  &none  &none  &none                  &none  &mo SCROLL  &none  &none  &none  &none
 &none    &none  &mo SCROLL  &none  &none                 &none   &none                                &none
             >;
         };
