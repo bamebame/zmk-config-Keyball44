@@ -278,10 +278,10 @@
         ball_layer {
             label = "BALL";
             bindings = <
-&none &none  &none  &none  &none  &none                  &none  &mkp MCLK  &mkp MB4  &mkp MB5  &none  &none
-&kp LCTRL  &none  &none  &mkp MCLK  &mkp LCLK  &mkp RCLK          &kp LEFT  &mkp LCLK  &mkp RCLK &kp RIGHT  &mo BALL  &none
-&kp LSHFT  &none  &none  &none  &none  &none                  &none  &mo SCROLL  &none  &none  &none  &none
-&none    &none  &mo SCROLL  &none  &none                 &none   &none                                &none
+&none &none  &none  &none  &none  &none                       &none       &mkp MCLK     &mkp MB4        &mkp MB5    &none     &none
+&kp LCTRL  &none  &none  &mkp MCLK  &mkp LCLK  &mkp RCLK      &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
+&kp LSHFT  &none  &none  &none  &none  &none                  &mo SCROLL  &msc SCRL_UP  &msc SCRL_DOWN  &kp LCTRL   &none     &none
+&none    &none  &mo SCROLL  &td7 LALT 0  &td6 LCTRL 0         &none       &none                                     &none
             >;
         };
 
@@ -289,10 +289,10 @@
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG            &trans    &trans     &mkp MB4     &mkp MB5    &trans  &trans
-&trans      &bt BL_CLR    &trans        &mkp MCLK     &mkp LCLK     &mkp RCLK               &kp LEFT  &mkp LCLK  &mkp RCLK    &msc RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans          &trans            &trans  &trans
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans                                                                    &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG            &trans    &trans      &mkp MB4    &mkp MB5    &trans  &trans
+&trans      &bt BT_CLR    &trans        &mkp MCLK     &mkp LCLK     &mkp RCLK               &kp LEFT  &mkp LCLK   &mkp RCLK   &kp RIGHT   &trans  &trans
+&trans      &trans        &trans        &trans        &trans        &trans                  &trans    &trans      &trans      &trans      &trans  &trans
+            &trans        &trans        &trans        &td7 LALT 0   &td6 LCTRL 0            &trans    &trans                              &trans
             >;
         };
     };
