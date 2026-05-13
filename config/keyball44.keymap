@@ -57,13 +57,6 @@
             bindings = <&kp SEMI>, <&mo BALL>;
         };
 
-        // === SQT key: tap/hold=SQT, tap-and-hold=MO(SCROLL) ===
-        td_sqt: td_sqt {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp SQT>, <&mo SCROLL>;
-        };
 
         // === Shift+SEMI/SQT で modifier 消失する問題を回避 ===
         // Shift押下中: 直接 &kp で即時送信 / それ以外: td_* (tap-and-hold = MO layer)
@@ -72,12 +65,7 @@
             #binding-cells = <0>;
             bindings = <&td_semi>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        mm_sqt: mm_sqt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&td_sqt>, <&kp SQT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // === Thumb key: hold=MO(BALL), tap-and-hold=LCTRL+LSHFT ===
@@ -235,7 +223,7 @@
             label = "QWRT";
             bindings = <
 &kp ESC    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &kp LBKT
-&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &mm_semi      &mm_sqt
+&kp LCTRL  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &mm_semi      &kp SQT
 &kp LSHFT  &kp Z     &kp X   &kp C        &kp V          &kp B                          &kp N         &kp M           &kp COMMA  &kp DOT  &kp FSLH      &kp RSHFT
 &kp TAB    &kp LGUI  &td_ball BALL 0  &td0 NAV 0   &td2 FUN 0                     &td3 NUM 0     &td1 LALT 0                                                     &mo 5
             >;
@@ -257,7 +245,7 @@
             label = "FUN";
             bindings = <
 &kp F12    &kp F1     &kp F2          &kp F3          &kp F4      &kp F5                            &kp F6        &kp F7    &kp F8     &kp F9   &kp F10    &kp F11
-&kp LCTRL  &kp F12    &kp F13         &kp F14         &kp F15     &kp F16                           &kp H         &kp J     &kp K      &kp LBKT    &kp RBKT   &mm_sqt
+&kp LCTRL  &kp F12    &kp F13         &kp F14         &kp F15     &kp F16                           &kp H         &kp J     &kp K      &kp LBKT    &kp RBKT   &kp SQT
 &kp LSHFT  &kp LC(Z)  &kp LC(X)       &kp LC(C)       &kp LC(V)   &kp LC(B)                         &kp N         &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
 &kp LCTRL  &kp LGUI   &trans        &trans          &trans                       &td5 LSHFT 0     &td4 RALT 0                                            &trans
             >;
@@ -268,7 +256,7 @@
             label = "NUM";
             bindings = <
 &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                          &kp N6    &kp N7    &kp N8     &kp N9   &kp N0     &kp LBKT
-&kp LCTRL  &kp A     &kp S     &kp D     &kp F     &kp G                           &kp H     &kp J     &kp K      &kp LBKT    &kp RBKT   &mm_sqt
+&kp LCTRL  &kp A     &kp S     &kp D     &kp F     &kp G                           &kp H     &kp J     &kp K      &kp LBKT    &kp RBKT   &kp SQT
 &kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B                           &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
 &kp LCTRL  &kp LGUI  &trans  &td7 LALT 0  &td6 LCTRL 0                 &trans    &trans                                              &trans
             >;
