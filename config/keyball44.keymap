@@ -65,7 +65,6 @@
             #binding-cells = <0>;
             bindings = <&td_semi>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // === Thumb key: hold=MO(BALL), tap-and-hold=LCTRL+LSHFT ===
@@ -125,7 +124,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
-            bindings = <&kp DEL>, <&sk LC(LSHFT)>;
+            bindings = <&kp DEL>, <&kp LCTRL>;
         };
         td6_inner: td6_inner {
             compatible = "zmk,behavior-tap-dance";
