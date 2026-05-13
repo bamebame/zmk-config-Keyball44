@@ -65,6 +65,7 @@
             #binding-cells = <0>;
             bindings = <&td_semi>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         // === Thumb key: hold=MO(BALL), tap-and-hold=LCTRL+LSHFT ===
@@ -267,7 +268,7 @@
             bindings = <
 &none &none  &none  &none  &none  &none                       &none       &mkp MCLK     &mkp MB4        &mkp MB5    &none     &none
 &kp LCTRL  &none  &none  &mkp MCLK  &mkp LCLK  &mkp RCLK      &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
-&kp LSHFT  &none  &none  &none  &none  &none                  &mo SCROLL  &msc SCRL_UP  &msc SCRL_DOWN  &kp LCTRL   &none     &none
+&kp LSHFT  &none  &none  &none  &none  &none                  &mo SCROLL  &msc SCRL_DOWN  &msc SCRL_UP  &kp LCTRL   &none     &none
 &none    &none  &mo SCROLL  &td7 LALT 0  &td6 LCTRL 0         &none       &none                                     &none
             >;
         };
