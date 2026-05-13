@@ -24,7 +24,7 @@ layers:
   - K
   - L
   - {t: '&td_semi', s: ;}
-  - {t: '&td_sqt', s: ''''}
+  - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Z
   - X
@@ -114,7 +114,7 @@ layers:
   - K
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
-  - {t: '&td_sqt', s: ''''}
+  - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Ctl+Z
   - Ctl+X
@@ -159,7 +159,7 @@ layers:
   - K
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
-  - {t: '&td_sqt', s: ''''}
+  - {t: '''', s: '"'}
   - $$mdi:apple-keyboard-shift$$
   - Z
   - X
