@@ -61,8 +61,8 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
-  - D
-  - F
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-shift$$
   - G
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
@@ -106,8 +106,8 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - F12
   - F13
-  - F14
-  - F15
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-shift$$
   - F16
   - H
   - J
