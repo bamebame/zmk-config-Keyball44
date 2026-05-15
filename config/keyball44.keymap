@@ -234,7 +234,7 @@
             label = "NAV";
             bindings = <
 &kp ESC    &kp Q          &kp W        &kp E      &kp R      &kp T                          &kp Y          &kp ENTER  &kp ESC    &kp TAB    &kp END     &kp PG_UP
-&kp LCTRL  &kp C_VOL_DN   &kp C_VOL_UP &kp D      &kp F      &kp G                          &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &kp HOME      &kp PG_DN
+&kp LCTRL  &kp C_VOL_DN   &kp C_VOL_UP &kp LCTRL  &kp LSHFT  &kp G                          &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &kp HOME      &kp PG_DN
 &kp LSHFT  &kp LC(Z)      &kp LC(X)    &kp LC(C)  &kp LC(V)  &kp ENTER                      &kp BSPC       &kp GRAVE  &kp MINUS  &kp EQUAL  &kp BSLH      &kp RSHFT
 &kp LCTRL  &kp LGUI       &trans     &trans     &trans                       &td5 LSHFT 0   &td4 RALT 0                                                 &none
             >;
@@ -245,7 +245,7 @@
             label = "FUN";
             bindings = <
 &kp F12    &kp F1     &kp F2          &kp F3          &kp F4      &kp F5                            &kp F6        &kp F7    &kp F8     &kp F9   &kp F10    &kp F11
-&kp LCTRL  &kp F12    &kp F13         &kp F14         &kp F15     &kp F16                           &kp H         &kp J     &kp K      &kp LBKT    &kp RBKT   &kp SQT
+&kp LCTRL  &kp F12    &kp F13         &kp LCTRL       &kp LSHFT   &kp F16                           &kp H         &kp J     &kp K      &kp LBKT    &kp RBKT   &kp SQT
 &kp LSHFT  &kp LC(Z)  &kp LC(X)       &kp LC(C)       &kp LC(V)   &kp LC(B)                         &kp N         &kp M     &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
 &kp LCTRL  &kp LGUI   &trans        &trans          &trans                       &td5 LSHFT 0     &td4 RALT 0                                            &trans
             >;
