@@ -39,9 +39,9 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - $$mdi:keyboard-tab$$
   - LGUI
-  - {t: '&td_ball_inner', h: BALL}
+  - {t: '&td_ball_inner', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '&td0_inner', h: NAV}
-  - {t: '&td2_inner', h: FUN}
+  - {t: LANG2, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '&td3_inner', h: NUM}
   - {t: '&td1_inner', h: '$$mdi:apple-keyboard-option$$'}
   - SCROLL
@@ -131,7 +131,7 @@ layers:
   - LGUI
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '&td5_inner', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '&td4_inner', h: '$$mdi:apple-keyboard-option$$'}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -219,7 +219,7 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: SCROLL, type: held}
+  - SCROLL
   - {t: '&td7_inner', h: '$$mdi:apple-keyboard-option$$'}
   - {t: '&td6_inner', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
