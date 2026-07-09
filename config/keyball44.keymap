@@ -267,7 +267,7 @@
             label = "BALL";
             bindings = <
 &none  &none  &none  &none  &none  &none                       &kp LC(W)   &mkp MCLK     &mkp MB4        &mkp MB5    &none     &none
-&none  &none  &none  &mkp MCLK  &mkp LCLK  &mkp RCLK      &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
+&none  &none  &none  &kp LCTRL  &kp LSHFT  &kp F16      &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
 &none  &none  &none  &none  &none  &none                  &mo SCROLL  &msc SCRL_DOWN  &msc SCRL_UP  &kp LCTRL   &none     &none
 &none  &none  &mo SCROLL  &td7 LALT 0  &td6 LCTRL 0         &none       &none                                     &none
             >;
@@ -277,8 +277,8 @@
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG            &trans    &trans      &mkp MB4    &mkp MB5    &trans  &trans
-&trans      &bt BT_CLR    &trans        &mkp MCLK     &mkp LCLK     &mkp RCLK               &kp LEFT  &mkp LCLK   &mkp RCLK   &kp RIGHT   &trans  &trans
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &out OUT_TOG    &trans      &mkp MB4    &mkp MB5    &trans  &trans
+&trans      &bt BT_CLR    &trans   &kp LCTRL  &kp LSHFT  &kp F16                            &kp LEFT  &mkp LCLK   &mkp RCLK   &kp RIGHT   &trans  &trans
 &trans      &trans        &trans        &trans        &trans        &trans                  &trans    &trans      &trans      &trans      &trans  &trans
             &trans        &trans        &trans        &td7 LALT 0   &td6 LCTRL 0            &trans    &trans                              &trans
             >;
