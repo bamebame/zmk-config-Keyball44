@@ -41,13 +41,13 @@
     require-prior-idle-ms = <150>;
 
     // ここに挙げた位置「以外」のキーを押すと BALL 層を即座に解除する。
-    // = BALL 層で実際に使うキー(右手クラスタ + 左手の修飾キー)だけを列挙。
+    // = BALL 層で実際に使うキー(右手クラスタ + 左親指 td_lctl)だけを列挙。
     //   row0:  6  7  8  9         LC(W) MCLK MB4 MB5
-    //   row1: 15 16 17            LCTRL LSHFT F16
-    //         18 19 20 21         LEFT LCLK RCLK RIGHT
+    //   row1: 18 19 20 21         LEFT LCLK RCLK RIGHT
     //   row2: 30 31 32 33         MO(SCROLL) SCRL_DN SCRL_UP LCTRL
-    //   row3: 38 39 40            trans(LCTRL) td7(LALT) td6(LCTRL)
-    excluded-positions = <6 7 8 9 15 16 17 18 19 20 21 30 31 32 33 38 39 40>;
+    //   row3: 38                  trans(td_lctl)
+    //   ※ 左手 D F G(15-17) と親指 39 40 は trans だが、押すと BALL 層を抜ける。
+    excluded-positions = <6 7 8 9 18 19 20 21 30 31 32 33 38>;
 };
 
 / {
@@ -259,9 +259,9 @@
             label = "BALL";
             bindings = <
 &none  &none  &none  &none  &none  &none                       &kp LC(W)   &mkp MCLK     &mkp MB4        &mkp MB5    &none     &none
-&none  &none  &none  &kp LCTRL  &kp LSHFT  &kp F16      &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
+&none  &none  &none  &trans     &trans     &trans       &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
 &none  &none  &none  &none  &none  &none                  &mo SCROLL  &msc SCRL_DOWN  &msc SCRL_UP  &kp LCTRL   &none     &none
-&none  &none  &trans      &td7 LALT 0  &td6 LCTRL 0         &none       &none                                     &none
+&none  &none  &trans      &trans       &trans               &none       &none                                     &none
             >;
         };
 
