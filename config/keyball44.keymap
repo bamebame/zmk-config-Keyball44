@@ -10,9 +10,10 @@
 
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors.dtsi>
+#include <input/processors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
 
 &lt {
@@ -31,58 +32,49 @@
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
+// === トラックボール操作時の BALL 層自動切り替え ===
+// ドライバ側の automouse-layer は無効化し、ZMK 標準の入力プロセッサで制御する。
+// (keyball44_right.overlay の automouse-layer = <(-1)> と対で機能する)
+&zip_temp_layer {
+    // 直前の打鍵から 150ms 以内はボールを動かしても BALL 層へ入らない。
+    // タイピング中に手がボールに触れたときの誤爆を防ぐ。
+    require-prior-idle-ms = <150>;
+
+    // ここに挙げた位置「以外」のキーを押すと BALL 層を即座に解除する。
+    // = BALL 層で実際に使うキー(右手クラスタ + 左手の修飾キー)だけを列挙。
+    //   row0:  6  7  8  9         LC(W) MCLK MB4 MB5
+    //   row1: 15 16 17            LCTRL LSHFT F16
+    //         18 19 20 21         LEFT LCLK RCLK RIGHT
+    //   row2: 30 31 32 33         MO(SCROLL) SCRL_DN SCRL_UP LCTRL
+    //   row3: 38 39 40            trans(LCTRL) td7(LALT) td6(LCTRL)
+    excluded-positions = <6 7 8 9 15 16 17 18 19 20 21 30 31 32 33 38 39 40>;
+};
+
 / {
+    // ボールが止まってから 500ms で BALL 層を抜ける。
+    // 上の excluded-positions により通常キーを打てば即座に抜けるので、
+    // クリックしやすいよう長めに取っても誤爆は増えない。
+    trackball_listener {
+        input-processors = <&zip_temp_layer BALL 500>;
+    };
+
     behaviors {
-        cmqus: comma_question {
-            compatible = "zmk,behavior-mod-morph";
-            label = "COMMA_QUESTION";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp QUESTION>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        dtsmi: dot_semi {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOT_SEMI";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // === SEMI key: tap/hold=SEMI, tap-and-hold=MO(BALL) ===
-        td_semi: td_semi {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp SEMI>, <&mo BALL>;
-        };
-
-
-        // === Shift+SEMI/SQT で modifier 消失する問題を回避 ===
-        // Shift押下中: 直接 &kp で即時送信 / それ以外: td_* (tap-and-hold = MO layer)
-        mm_semi: mm_semi {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&td_semi>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-            keep-mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // === Thumb key: hold=LSHFT, tap-and-hold=LCTRL+LSHFT ===
-        td_ball_inner: td_ball_inner {
+        // === 左親指キー: hold=引数のmod(LCTRL) / 1タップ=無反応 / 2タップ=LC(LSHFT) ===
+        // (旧 td_ball。BALL 層とは無関係のため改名)
+        td_lctl_inner: td_lctl_inner {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&none>, <&kp LC(LSHFT)>;
         };
-        td_ball: td_ball {
+        td_lctl: td_lctl {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
             require-prior-idle-ms = <80>;
-            bindings = <&kp>, <&td_ball_inner>;
+            bindings = <&kp>, <&td_lctl_inner>;
         };
 
         // === Vial tap-dance 再現 (逆ネスト方式 + quick-tap-ms) ===
@@ -223,9 +215,9 @@
             label = "QWRT";
             bindings = <
 &none    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &none
-&none  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &mm_semi      &none
+&none  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &kp SEMI      &none
 &none  &kp Z     &kp X   &kp C        &kp V          &kp B                          &kp N         &kp M           &kp COMMA  &kp DOT  &kp FSLH      &none
-&none    &kp LGUI  &td_ball LCTRL 0  &td0 NAV 0   &mt LSHFT LANG2                &td3 NUM 0     &td1 LALT 0                                                     &mo 5
+&none    &kp LGUI  &td_lctl LCTRL 0  &td0 NAV 0   &mt LSHFT LANG2                &td3 NUM 0     &td1 LALT 0                                                     &mo 5
             >;
         };
 
