@@ -23,7 +23,7 @@ layers:
   - J
   - K
   - L
-  - {t: '&td_semi', s: ;}
+  - {t: ;, s: ':'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - Z
@@ -39,7 +39,7 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - LGUI
-  - {t: '&td_ball_inner', h: '$$mdi:apple-keyboard-control$$'}
+  - {t: '&td_lctl_inner', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '&td0_inner', h: NAV}
   - {t: LANG2, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '&td3_inner', h: NUM}
