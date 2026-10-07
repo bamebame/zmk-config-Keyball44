@@ -279,8 +279,8 @@
             bindings = <
 &none            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4        &out OUT_TOG     &trans           &mkp MB4         &mkp MB5         &trans           &trans
 &trans           &bt BT_CLR       &trans           &kp LCTRL        &kp LSHFT        &kp F16        &kp LEFT         &mkp LCLK        &mkp RCLK        &kp RIGHT        &trans           &trans
-&trans           &trans           &trans           &trans           &trans           &trans        &trans           &trans           &trans           &trans           &trans           &bootloader
-&bootloader      &trans           &trans           &td7 LALT 0      &td6 LCTRL 0        &trans           &trans           &trans
+&trans           &trans           &trans           &trans           &trans           &trans        &trans           &trans           &trans           &trans           &trans           &trans
+&bootloader      &trans           &trans           &td7 LALT 0      &td6 LCTRL 0        &trans           &bootloader      &trans
             >;
         };
     };
