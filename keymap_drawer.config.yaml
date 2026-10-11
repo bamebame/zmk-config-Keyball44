@@ -255,6 +255,22 @@ parse_config:
     "&bootloader":
       tap: $$mdi:progress-download$$
 
+    # --- 以下、zmk-config-moNa2 と揃えて追加 ---
+    # マウスボタン (MB4/MB5 はブラウザの戻る/進む)
+    "&mkp MB4": "MB4"
+    "&mkp MB5": "MB5"
+
+    # tap-dance 群 (外側 hold-tap + 内側 tap-dance の逆ネスト)
+    # tap = 1タップ / hold = ホールド。2タップ目の動作は図に出せないのでここに記す。
+    "&td0 NAV 0":       { tap: "SPC",   hold: "NAV" }    # 2タップ: MO(FUN)
+    "&td1 LALT 0":      { tap: "SPC",   hold: "LALT" }   # 2タップ: LSHFT
+    "&td3 NUM 0":       { tap: "LANG1", hold: "NUM" }    # 2タップ: LCTRL
+    "&td4 RALT 0":      { tap: "–",     hold: "RALT" }   # 2タップ: SK RA(RSHFT)
+    "&td5 LSHFT 0":     { tap: "DEL",   hold: "LSHFT" }  # 2タップ: LCTRL
+    "&td6 LCTRL 0":     { tap: "–",     hold: "LCTRL" }  # 2タップ: LSHFT
+    "&td7 LALT 0":      { tap: "–",     hold: "LALT" }   # 2タップ: LSHFT
+    "&td_lctl LCTRL 0": { tap: "–",     hold: "LCTRL" }  # 2タップ: Ctrl+Shift
+
   # ZMK
   zmk_keycode_map:
     # Symbols
