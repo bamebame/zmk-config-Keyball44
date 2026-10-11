@@ -39,11 +39,11 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - LGUI
-  - {t: '&td_lctl_inner', h: '$$mdi:apple-keyboard-control$$'}
-  - {t: '&td0_inner', h: NAV}
+  - {t: –, h: LCTRL}
+  - {t: SPC, h: NAV}
   - {t: LANG2, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: '&td3_inner', h: NUM}
-  - {t: '&td1_inner', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: LANG1, h: NUM}
+  - {t: SPC, h: LALT}
   - SCROLL
   NAV:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -85,10 +85,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - LGUI
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&td5_inner', h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: '&td4_inner', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: DEL, h: LSHFT}
+  - {t: –, h: RALT}
   - SCROLL
   FUN:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -132,8 +132,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&td5_inner', h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: '&td4_inner', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: DEL, h: LSHFT}
+  - {t: –, h: RALT}
   - {t: '$$mdi:transfer$$', type: trans}
   NUM:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -175,9 +175,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - LGUI
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&td7_inner', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: –, h: LALT}
   - $$mdi:apple-keyboard-shift$$
-  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   BALL:
@@ -189,8 +189,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - Ctl+W
   - $$mdi:mouse-scroll-wheel$$
-  - '&mkp MB4'
-  - '&mkp MB5'
+  - MB4
+  - MB5
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -234,8 +234,8 @@ layers:
   - {h: '5', s: '$$mdi:bluetooth-connect$$'}
   - {t: '$$mdi:toggle-switch$$', h: '$$mdi:bluetooth$$', s: '$$mdi:usb$$'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&mkp MB4'
-  - '&mkp MB5'
+  - MB4
+  - MB5
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -265,8 +265,8 @@ layers:
   - $$mdi:progress-download$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&td7_inner', h: '$$mdi:apple-keyboard-option$$', type: held alternate}
-  - {t: '&td6_inner', h: '$$mdi:apple-keyboard-control$$'}
+  - {t: –, h: LALT}
+  - {t: –, h: LCTRL}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
