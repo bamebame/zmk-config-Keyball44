@@ -220,7 +220,7 @@
 
         // L0: 英字 / TD0=&lt NAV SPACE, TD2=&lt FUN LANG2, TD3=&lt NUM LANG1, TD1=&mt LALT SPACE
         default_layer {
-            label = "QWRT";
+            display-name = "QWRT";
             bindings = <
 &none    &kp Q     &kp W   &kp E        &kp R          &kp T                          &kp Y         &kp U           &kp I      &kp O    &kp P         &none
 &none  &kp A     &kp S   &kp D        &kp F          &kp G                          &kp H         &kp J           &kp K      &kp L    &kp SEMI      &none
@@ -231,7 +231,7 @@
 
         // L1: ナビ / 音量 / コピペ
         nav_layer {
-            label = "NAV";
+            display-name = "NAV";
             bindings = <
 &none    &kp Q          &kp W        &kp E      &kp R      &kp T                          &kp Y          &kp ENTER  &kp ESC    &kp TAB    &kp END     &none
 &none  &kp C_VOL_DN   &kp C_VOL_UP &kp LCTRL  &kp LSHFT  &kp G                          &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &kp HOME      &none
@@ -242,7 +242,7 @@
 
         // L2: F-key / マウスホイール / マウスボタン
         fun_layer {
-            label = "FUN";
+            display-name = "FUN";
             bindings = <
 &none  &kp F1     &kp F2          &kp F3          &kp F4      &kp F5                            &kp F6        &kp F7    &kp F8     &kp F9   &kp F10    &none
 &none  &kp F11    &kp F12         &kp LCTRL       &kp LSHFT   &kp F16                           &kp H         &kp J     &kp K      &kp LBKT    &kp RBKT   &none
@@ -253,7 +253,7 @@
 
         // L3: 数字行 / TD7=&kp LALT, TD6=&kp LCTRL
         num_layer {
-            label = "NUM";
+            display-name = "NUM";
             bindings = <
 &none    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                          &kp N6    &kp N7    &kp N8     &kp N9   &kp N0     &none
 &none  &kp A     &kp S     &kp D     &kp F     &kp G                           &kp H     &kp J     &kp SQT    &kp LBKT    &kp RBKT   &none
@@ -264,7 +264,7 @@
 
         // L4: BALL (Vial USER00-07) / USER07=SCRL_MO -> &mo SCROLL, USER00-02 は ZMK 等価無しのため &none
         ball_layer {
-            label = "BALL";
+            display-name = "BALL";
             bindings = <
 &none  &none  &none  &none  &none  &none                       &kp LC(W)   &mkp MCLK     &mkp MB4        &mkp MB5    &none     &none
 &none  &none  &none  &trans     &trans     &trans       &kp LEFT    &mkp LCLK     &mkp RCLK       &kp RIGHT   &none     &none
@@ -275,7 +275,7 @@
 
         // L5: SCROLL (USER07 = SCRL_MO の hold 先 / 右ホーム行に方向スクロールを配置)
         scroll_layer {
-            label = "SCROLL";
+            display-name = "SCROLL";
             bindings = <
 &none            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4        &out OUT_TOG     &trans           &mkp MB4         &mkp MB5         &trans           &trans
 &trans           &bt BT_CLR       &trans           &kp LCTRL        &kp LSHFT        &kp F16        &kp LEFT         &mkp LCLK        &mkp RCLK        &kp RIGHT        &trans           &trans
